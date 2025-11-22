@@ -15,26 +15,37 @@ Make sure you have the following installed:
 ### 1. Start Minikube
 ```bash
 minikube start
+```
 2. Build the Docker image inside Minikube
-bash
-Copy code
+
+This ensures the image is available inside the Minikube cluster.
+```bash
 eval $(minikube docker-env)
 docker build -t kavybhavsar/react-hello:latest .
+```
 3. Apply the Kubernetes Deployment
-bash
-Copy code
+```bash
 kubectl apply -f deployment.yaml
+```
 4. Apply the Kubernetes Service
-bash
-Copy code
+```bash
 kubectl apply -f service.yaml
-5. Verify Resources
-bash
-Copy code
+```
+5. Verify that everything is running
+```bash
 kubectl get pods
 kubectl get services
+```
+
+You should see:
+
+A pod named react-hello
+
+A service named react-hello-service
+
 6. Open the Application in the Browser
-bash
-Copy code
+```bash
 minikube service react-hello-service
+```
+
 Minikube will automatically open the service URL in your browser.
